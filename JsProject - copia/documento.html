@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="slider.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+
+    </header>
+    <nav>
+
+    </nav>
+
+<div class="slider-container">
+    <div class="slider" >
+
+        <img id="slider" src="img/new-york-4952427_1280.jpg" alt="New York">
+        <img id="slider" src="img/singapore.jpg" alt="Singapure 2">
+        <img id="slider" src="img/singapore2.jpg" alt="Singapore">
+        <img id="slider" src="img/skyline.jpg" alt="Sky line">
+
+    </div>
+</div>
+    <button id ="sgte" onclick="cambiarImagen()">
+        cambiar
+    </button>
+    <main>
+
+
+    </main>
+
+
+    
+</body>
+<script>
+    function cambiarImagen(){
+        document.getElementById("slider").src='img/singapore.jpg';
+    }
+</script>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+        let slider = document.querySelector(".slider");
+        let contador  = 1;
+
+        setInterval(()=>{
+
+            slider.style.transition = "transform 0.5s ease-in-out";
+            slider.style.transform = `translateX(${-contador*100}%)`;
+
+            contador++;
+
+            if(contador === slider.children.length){
+
+                setTimeout(()=> {
+
+                    slider.style.transition = "none;"
+                    slider.style.transform = 'translateX(0)'
+
+                    contador = 1;
+                },500);
+            }
+
+        },3000);
+
+    });
+    
+</script>
+</html>
